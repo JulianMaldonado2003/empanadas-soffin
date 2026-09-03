@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empanadas Soffin — El mejor sabor casero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>🥟 Empanadas Soffin</h1>
+        <p>El mejor sabor casero — ¡Recién hechas para ti!</p>
+        <nav>
+            <a href="index.html" class="activo">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="administrador/login.html">Administración</a>
+        </nav>
+    </header>
+
+    <section class="contenedor">
+        <div class="bienvenida">
+            <h2>¡Bienvenidos a Empanadas Soffin!</h2>
+            <p>Las empanadas más ricas y crujientes, hechas con amor y los mejores ingredientes. 🧡</p>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <h3>📱 Escanea nuestro menú</h3>
+            <div id="qr-code"></div>
+            <p style="font-size: 0.9em; color: #666;">Tu dirección:</p>
+            <p style="color: #d35400; font-weight: bold;">https://julianmaldonado2003.github.io/empanadas-soffin/</p>
+        </div>
+
+        <div class="cuadricula">
+            <div class="tarjeta">
+                <img src="imagenes/queso.jpg" alt="Empanada de Queso" style="width:100%; border-radius:8px;">
+                <h3>🧀 Empanada de Queso</h3>
+                <p>Queso derretido en masa crujiente</p>
+                <p class="precio">$3.600 COP</p>
+            </div>
+            <div class="tarjeta">
+                <img src="imagenes/pollo.jpg" alt="Empanada de Pollo" style="width:100%; border-radius:8px;">
+                <h3>🍗 Empanada de Pollo</h3>
+                <p>Pollo desmechado bien sazonado</p>
+                <p class="precio">$3.800 COP</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Empanadas Soffin | El mejor sabor casero</p>
+    </footer>
+
+    <!-- Librería para generar QR -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <script>
+        // ✅ TU DIRECCIÓN REAL DE GITHUB
+        let urlGitHub = "https://julianmaldonado2003.github.io/empanadas-soffin/";
+
+        // Generar el código QR
+        document.addEventListener("DOMContentLoaded", function(){
+            let qrContainer = document.getElementById("qr-code");
+            QRCode.toCanvas(qrContainer, urlGitHub, {
+                width: 200,
+                margin: 2,
+                color: { dark: "#d35400", light: "#ffffff" }
+            }, function(error){
+                if(error) console.error(error);
+            });
+        });
+    </script>
+</body>
+</html>

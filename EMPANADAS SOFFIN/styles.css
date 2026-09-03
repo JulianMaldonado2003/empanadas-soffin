@@ -1,0 +1,179 @@
+/* ======================================
+   EMPANADAS SOFFIN — Estilos Generales
+   ====================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fff9f2;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ---------- Encabezado ---------- */
+header {
+    background: linear-gradient(135deg, #d35400, #e67e22);
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.95;
+    margin-bottom: 15px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    margin: 4px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.18);
+    transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.activo {
+    background: white;
+    color: #d35400;
+    font-weight: bold;
+}
+
+/* ---------- Contenedor ---------- */
+.contenedor {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* ---------- Tarjetas ---------- */
+.cuadricula {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta h3 {
+    color: #d35400;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: #27ae60;
+    margin-top: 10px;
+}
+
+/* ---------- Formularios ---------- */
+.caja-formulario {
+    max-width: 480px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.grupo-formulario {
+    margin-bottom: 18px;
+}
+
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+.grupo-formulario input,
+.grupo-formulario textarea,
+.grupo-formulario select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #f0e6d6;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border 0.3s;
+}
+
+.grupo-formulario input:focus,
+.grupo-formulario textarea:focus {
+    outline: none;
+    border-color: #d35400;
+}
+
+/* ---------- Botones ---------- */
+.boton {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #d35400, #e67e22);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+}
+
+.boton:hover {
+    background: #b04800;
+    transform: scale(1.02);
+}
+
+/* ---------- Enlaces pequeños ---------- */
+.enlace-pequeño {
+    color: #d35400;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.enlace-pequeño:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Pie de página ---------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: #f5e6d3;
+    color: #555;
+    font-size: 0.95em;
+}
+
+/* ---------- Responsividad ---------- */
+@media (max-width: 600px) {
+    header h1 { font-size: 1.5em; }
+    .caja-formulario { padding: 20px 15px; }
+    nav a { padding: 6px 12px; font-size: 0.9em; }
+}

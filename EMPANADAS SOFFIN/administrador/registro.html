@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario - Empanadas Soffin</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>🍽️ Empanadas Soffin</h1>
+        <p>Registro de nuevo administrador</p>
+    </header>
+
+    <section class="caja-formulario">
+        <h2>Crear Cuenta</h2>
+        <form action="#" method="POST" id="formRegistro">
+            <div class="grupo-formulario">
+                <label>Nombre Completo</label>
+                <input type="text" id="nombre" placeholder="Tu nombre completo" required>
+            </div>
+            <div class="grupo-formulario">
+                <label>Correo Electrónico</label>
+                <input type="email" id="correo" placeholder="correo@ejemplo.com" required>
+            </div>
+            <div class="grupo-formulario">
+                <label>Usuario</label>
+                <input type="text" id="usuario" placeholder="Nombre de usuario" required>
+            </div>
+            <div class="grupo-formulario">
+                <label>Contraseña</label>
+                <input type="password" id="pass1" placeholder="Mínimo 6 caracteres" required>
+            </div>
+            <div class="grupo-formulario">
+                <label>Confirmar Contraseña</label>
+                <input type="password" id="pass2" placeholder="Repite tu contraseña" required>
+            </div>
+            <button type="submit" class="boton">Registrarme</button>
+        </form>
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="login.html" class="enlace-pequeño">¿Ya tienes cuenta? Inicia sesión</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Empanadas Soffin | El mejor sabor casero</p>
+    </footer>
+
+    <script src="js/validaciones.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.getElementById("formRegistro").addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (!validarCamposVacios(this)) return;
+
+            let p1 = document.getElementById("pass1").value;
+            let p2 = document.getElementById("pass2").value;
+
+            if (p1.length < 6) {
+                alert("⚠️ La contraseña debe tener al menos 6 caracteres");
+                return;
+            }
+            if (p1 !== p2) {
+                alert("⚠️ Las contraseñas NO coinciden");
+                return;
+            }
+
+            alert("✅ Cuenta registrada correctamente! Ya puedes iniciar sesión.");
+            window.location.href = "login.html";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Productos - Empanadas Soffin</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>📦 Gestionar Productos</h1>
+        <p>Empanadas Soffin — Panel de Administración</p>
+        <div style="text-align: right; margin-top: -50px;">
+            <a href="dashboard_usuario.html" class="enlace-pequeño">← Volver al Panel</a>
+        </div>
+    </header>
+
+    <section class="contenedor">
+        <h2>Agregar Nuevo Producto</h2>
+        <form action="#" method="POST" class="caja-formulario" id="formProducto">
+            <div class="grupo-formulario">
+                <label>Nombre del Producto</label>
+                <input type="text" id="nombreProd" placeholder="Ej: Empanada de Queso" required>
+            </div>
+            <div class="grupo-formulario">
+                <label>Precio (COP)</label>
+                <input type="number" id="precioProd" placeholder="3600" required>
+            </div>
+            <div class="grupo-formulario">
+                <label>Descripción</label>
+                <textarea id="descProd" placeholder="Breve descripción..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="boton">Guardar Producto</button>
+        </form>
+
+        <h2 style="margin-top: 40px;">Lista de Productos</h2>
+        <div class="cuadricula">
+            <div class="tarjeta">
+                <h3>🧀 Empanada de Queso</h3>
+                <p>Queso derretido en masa crujiente.</p>
+                <p class="precio">$3.600 COP</p>
+                <button class="boton">✏️ Editar</button>
+                <button class="boton" style="background:#c0392b;" onclick="if(confirm('¿Eliminar producto?')) alert('✅ Eliminado')">🗑️ Eliminar</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Empanadas Soffin | El mejor sabor casero</p>
+    </footer>
+
+    <script src="js/validaciones.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.getElementById("formProducto").addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (!validarCamposVacios(this)) return;
+            alert("✅ Producto guardado correctamente");
+            this.reset();
+        });
+    </script>
+</body>
+</html>
