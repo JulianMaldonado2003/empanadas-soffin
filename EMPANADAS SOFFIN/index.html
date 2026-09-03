@@ -27,9 +27,12 @@
 
         <div style="text-align: center; margin: 30px 0;">
             <h3>📱 Escanea nuestro menú</h3>
-            <div id="qr-code"></div>
-            <p style="font-size: 0.9em; color: #666;">Tu dirección:</p>
-            <p style="color: #d35400; font-weight: bold;">https://julianmaldonado2003.github.io/empanadas-soffin/</p>
+            
+            <!-- ✅ ESPACIO EXACTO DONDE SE DIBUJA EL QR -->
+            <div id="qr-code" style="display: inline-block; padding: 10px; background: #fff; border-radius: 8px;"></div>
+            
+            <p style="font-size: 0.9em; color: #666; margin-top: 15px;">Tu dirección:</p>
+            <p style="color: #d35400; font-weight: bold; font-size: 0.95em;">https://julianmaldonado2003.github.io/empanadas-soffin/</p>
         </div>
 
         <div class="cuadricula">
@@ -52,23 +55,52 @@
         <p>&copy; 2026 Empanadas Soffin | El mejor sabor casero</p>
     </footer>
 
-    <!-- Librería para generar QR -->
+    <!-- ✅ LIBRERÍA QR — NO BORRAR ESTA LÍNEA -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+
+    <!-- ✅ CÓDIGO CORREGIDO DEL QR -->
     <script>
-        // ✅ TU DIRECCIÓN REAL DE GITHUB
+        // Tu dirección completa de GitHub
         let urlGitHub = "https://julianmaldonado2003.github.io/empanadas-soffin/";
 
-        // Generar el código QR
-        document.addEventListener("DOMContentLoaded", function(){
-            let qrContainer = document.getElementById("qr-code");
-            QRCode.toCanvas(qrContainer, urlGitHub, {
-                width: 200,
-                margin: 2,
-                color: { dark: "#d35400", light: "#ffffff" }
-            }, function(error){
-                if(error) console.error(error);
+        // Función para generar el QR
+        function generarCodigoQR() {
+            let contenedor = document.getElementById("qr-code");
+
+            // Verificar que exista el espacio
+            if (!contenedor) {
+                console.error("❌ No se encontró el espacio para el QR");
+                return;
+            }
+
+            // Verificar que la librería ya cargó
+            if (typeof QRCode === "undefined") {
+                console.log("⏳ Esperando que cargue la librería...");
+                setTimeout(generarCodigoQR, 400); // Reintenta cada 0.4 segundos
+                return;
+            }
+
+            // ✅ Generar el Código QR
+            QRCode.toCanvas(contenedor, urlGitHub, {
+                width: 220,
+                margin: 3,
+                color: {
+                    dark: "#d35400",   // Color naranja igual a tu página
+                    light: "#ffffff"   // Fondo blanco
+                }
+            }, function(error) {
+                if (error) {
+                    console.error("❌ Error generando QR:", error);
+                    contenedor.innerHTML = "<p style='color:red; padding:10px;'>No se pudo generar el código QR</p>";
+                } else {
+                    console.log("✅ Código QR GENERADO CORRECTAMENTE 🎉");
+                }
             });
-        });
+        }
+
+        // Ejecutar cuando la página esté completamente lista
+        document.addEventListener("DOMContentLoaded", generarCodigoQR);
     </script>
+
 </body>
 </html>
