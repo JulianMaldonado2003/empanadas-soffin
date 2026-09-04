@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Categorías - Empanadas Soffin</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>📂 Gestionar Categorías</h1>
+        <p>Empanadas Soffin — Panel de Administración</p>
+        <div style="text-align: right; margin-top: -50px;">
+            <a href="dashboard_usuario.html" class="enlace-pequeño">← Volver al Panel</a>
+        </div>
+    </header>
+
+    <section class="contenedor">
+        <h2>Agregar Nueva Categoría</h2>
+        <form action="#" method="POST" class="caja-formulario" id="formCategoria">
+            <div class="grupo-formulario">
+                <label>Nombre de la Categoría</label>
+                <input type="text" id="nombreCat" placeholder="Ej: Empanadas de Carne" required>
+            </div>
+            <div class="grupo-formulario">
+                <label>Descripción</label>
+                <textarea id="descCat" placeholder="Breve descripción..." rows="3"></textarea>
+            </div>
+            <button type="submit" class="boton">Guardar Categoría</button>
+        </form>
+
+        <h2 style="margin-top: 40px;">Lista de Categorías</h2>
+        <div class="cuadricula">
+            <div class="tarjeta">
+                <h3>🥩 Empanadas de Carne</h3>
+                <p>Rellenas de carne de res sazonada.</p>
+                <button class="boton">✏️ Editar</button>
+                <button class="boton" style="background:#c0392b;" onclick="if(confirm('¿Eliminar esta categoría?')) alert('✅ Eliminada')">🗑️ Eliminar</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Empanadas Soffin | El mejor sabor casero</p>
+    </footer>
+
+    <script src="js/validaciones.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.getElementById("formCategoria").addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (!validarCamposVacios(this)) return;
+            alert("✅ Categoría guardada correctamente");
+            this.reset();
+        });
+    </script>
+</body>
+</html>

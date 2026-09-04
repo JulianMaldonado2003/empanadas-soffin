@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empanadas Soffin — El mejor sabor casero</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos del carrusel */
+        .carrusel {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .carrusel-contenedor {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d35400, #e67e22);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .slide h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .indicadores {
+            text-align: center;
+            padding: 10px;
+            background: #fff;
+        }
+        .punto {
+            height: 12px;
+            width: 12px;
+            margin: 0 6px;
+            background-color: #ddd;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .punto.activo {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🥟 Empanadas Soffin</h1>
+        <p>El mejor sabor casero — ¡Recién hechas para ti!</p>
+        <nav>
+            <a href="index.html" class="activo">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="administrador/login.html">Administración</a>
+        </nav>
+    </header>
+
+    <!-- ✅ CARRUSEL AUTOMÁTICO -->
+    <div class="carrusel">
+        <div class="carrusel-contenedor">
+            <div class="slide activo">
+                <div>
+                    <h3>🧀 ¡Las mejores empanadas de queso!</h3>
+                    <p>Queso derretido en masa crujiente — ¡Solo $3.600!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div>
+                    <h3>🍗 Empanadas de Pollo</h3>
+                    <p>Pollo desmechado bien sazonado — ¡Solo $3.800!</p>
+                </div>
+            </div>
+            <div class="slide">
+                <div>
+                    <h3>❤️ Hechas con amor</h3>
+                    <p>Los mejores ingredientes, recién hechas para ti</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="indicadores">
+        <span class="punto activo" onclick="irASlide(0)"></span>
+        <span class="punto" onclick="irASlide(1)"></span>
+        <span class="punto" onclick="irASlide(2)"></span>
+    </div>
+
+    <section class="contenedor">
+        <div style="text-align: center; margin: 30px 0;">
+            <h3>📱 Escanea nuestro menú</h3>
+            
+            <!-- ✅ ESPACIO PARA EL CÓDIGO QR -->
+            <div id="qrcode" style="display: inline-block; padding: 10px; background: #fff; border-radius: 8px;"></div>
+            
+            <p style="font-size: 0.9em; color: #666; margin-top: 15px;">Tu dirección:</p>
+            <p style="color: #d35400; font-weight: bold; font-size: 0.95em;">https://julianmaldonado2003.github.io/empanadas-soffin/</p>
+        </div>
+
+        <div class="cuadricula">
+            <div class="tarjeta">
+                <img src="imagenes/queso.jpg" alt="Empanada de Queso" style="width:100%; border-radius:8px;">
+                <h3>🧀 Empanada de Queso</h3>
+                <p>Queso derretido en masa crujiente</p>
+                <p class="precio">$3.600 COP</p>
+            </div>
+            <div class="tarjeta">
+                <img src="imagenes/pollo.jpg" alt="Empanada de Pollo" style="width:100%; border-radius:8px;">
+                <h3>🍗 Empanada de Pollo</h3>
+                <p>Pollo desmechado bien sazonado</p>
+                <p class="precio">$3.800 COP</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Empanadas Soffin | El mejor sabor casero</p>
+    </footer>
+
+    <!-- ✅ TUS LIBRERÍAS EXACTAS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Librería QR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- ✅ CÓDIGO QR -->
+    <script>
+        let urlGitHub = "https://julianmaldonado2003.github.io/empanadas-soffin/";
+
+        document.addEventListener("DOMContentLoaded", function(){
+            let contenedor = document.getElementById("qrcode");
+
+            if (!contenedor) {
+                console.error("❌ No se encontró el espacio 'qrcode'");
+                return;
+            }
+
+            // Generar el QR con TU librería
+            new QRCode(contenedor, {
+                text: urlGitHub,
+                width: 220,
+                height: 220,
+                colorDark: "#d35400",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            console.log("✅ QR GENERADO CORRECTAMENTE 🎉");
+        });
+    </script>
+
+    <!-- ✅ CARRUSEL AUTOMÁTICO COMPLETO -->
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let puntos = document.querySelectorAll(".punto");
+        let indiceActual = 0;
+
+        // Mostrar slide según índice
+        function mostrarSlide(indice) {
+            // Ocultar todos
+            slides.forEach(slide => slide.classList.remove("activo"));
+            puntos.forEach(punto => punto.classList.remove("activo"));
+
+            // Mostrar el seleccionado
+            slides[indice].classList.add("activo");
+            puntos[indice].classList.add("activo");
+            indiceActual = indice;
+        }
+
+        // Ir a un slide específico
+        function irASlide(indice) {
+            mostrarSlide(indice);
+        }
+
+        // Siguiente slide automáticamente
+        function siguienteSlide() {
+            let proximo = (indiceActual + 1) % slides.length;
+            mostrarSlide(proximo);
+        }
+
+        // Cambiar cada 4 segundos
+        setInterval(siguienteSlide, 4000);
+
+        console.log("✅ Carrusel funcionando 🎠");
+    </script>
+
+</body>
+</html>

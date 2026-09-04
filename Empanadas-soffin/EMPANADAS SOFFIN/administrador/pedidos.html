@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Pedidos - Empanadas Soffin</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>📋 Pedidos Recibidos</h1>
+        <p>Empanadas Soffin — Panel de Administración</p>
+        <div style="text-align: right; margin-top: -50px;">
+            <a href="dashboard_usuario.html" class="enlace-pequeño">← Volver al Panel</a>
+        </div>
+    </header>
+
+    <section class="contenedor">
+        <h2>Todos los Pedidos</h2>
+        <div class="tarjeta" style="border-left:5px solid #f39c12;">
+            <h3>🛒 Pedido #001</h3>
+            <p><strong>Cliente:</strong> María López</p>
+            <p><strong>Fecha:</strong> 03/09/2026</p>
+            <p><strong>Productos:</strong> 2x Empanadas de Queso, 1x Jugo</p>
+            <p><strong>Total:</strong> $9.700 COP</p>
+            <p><strong>Estado:</strong> <span id="estado1">⏳ Pendiente</span></p>
+            <div style="margin-top:10px;">
+                <button class="boton" onclick="cambiarEstado('estado1','🚚 En camino')">En Camino</button>
+                <button class="boton" onclick="cambiarEstado('estado1','✅ Entregado')">Entregado</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Empanadas Soffin | El mejor sabor casero</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        function cambiarEstado(id, texto) {
+            document.getElementById(id).textContent = texto;
+            alert("✅ Estado actualizado");
+        }
+    </script>
+</body>
+</html>
